@@ -1,0 +1,232 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../js/form.js"></script>
+
+    <link href="./checkbox.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
+
+    <script type="text/javascript">
+//       function addWaitingVideo(baseVideo, waitingVideo) {
+//           baseVideo.on("ended", function (e) {
+//               if (waitingVideo[0].paused) {
+//                   waitingVideo[0].play();
+//               }
+//               waitingVideo.show();
+//           });
+//       }
+
+    </script>
+    <style>
+        body{
+            margin: 0;
+        }
+        .modal {
+            position: fixed;
+            display: flex;
+            width: 100%;
+            bottom: 10%;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .info-box__container {
+            align-self: baseline;
+            margin: 10px 10px;
+            max-width: 700px;
+            padding: 40px;
+            width: 100%;
+            font-size: 14px;
+            background: #8c8686de;
+        }
+        .info-box__title {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px auto;
+            color: black;
+        }
+
+        body {
+            width: 100%;
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: 100%;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+            transition: 1s opacity;
+            z-index: -4;
+        }
+        @media (max-width: 1000px) {
+            video {
+                left: 0;
+            }
+        }
+        .videoBg {
+            position: fixed;
+            width: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            background: rgba(0,0,0,0.7);
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        .sContact-input {
+            width: 100%;
+            border: 7px solid black;
+            padding: 15px 10px 15px 10px;
+            font-size: 31px;
+            margin: 10px;
+        }
+
+        .contact-button {
+            background: black;
+            border: 0;
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 10px 0 0 0px;
+            color: #fff;
+            border-radius: 3px;
+            padding: 15px 52px;
+            transition: .3s ease-in-out all;
+        }
+        .play {
+            display: block;
+            width: 70px;
+            height: 70px;
+            background: url(./play.png);
+            cursor: pointer;
+            margin: 50px auto 0 auto;
+        }
+        .konto-form{
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body class="mainpage" id="body">
+<!--muted=""-->
+<!--preload="auto"-->
+<div id="video-section">
+    <video id="video-step-1" class="video" playsinline="" autoplay="" preload="auto" >
+        <source src="./pierwszy.mp4" type="video/mp4">
+    </video>
+    <video id="video-waiting" class="video" playsinline=""  loop="" muted="" style="display: none" preload="auto">
+        <source src="./pauza2.mp4" type="video/mp4">
+    </video>
+    <video id="video-step-2" class="video" playsinline="" style="display: none"  preload="auto">
+        <source src="./imienazwisko.mp4" type="video/mp4">
+    </video>
+<!--    <video id="video-step-3" class="video" playsinline="" style="display: none"  preload="auto">-->
+<!--        <source src="./adres.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--    <video id="video-step-4" class="video" playsinline="" style="display: none"  preload="auto">-->
+<!--        <source src="./numer_telefonu.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--    <video id="video-step-5" class="video" playsinline="" style="display: none"  preload="auto">-->
+<!--        <source src="./newsletter.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--    <video id="video-step-6" class="video" playsinline="" style="display: none"  preload="auto">-->
+<!--        <source src="./podziekowania.mp4" type="video/mp4">-->
+<!--    </video>-->
+</div>
+
+<div class="videoBg"></div>
+<form style="width: 100%;">
+    <button class="play"></button>
+</form>
+
+<main  id="konto-form" class="modal" style="display: none">
+    <div class="info-box__container">
+        <form id="form-1" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok I</div>
+
+            <div class="info-box__content"></div>
+
+            <div style="display: flex; justify-content: space-around">
+                <label class="container">Miss
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Mister
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <button type="button" class="contact-button" id="step-1-submit">OK</button>
+        </form>
+
+        <form id="form-2" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok II</div>
+
+            <div class="info-box__content"></div>
+
+            <div style="display: flex; justify-content: space-around">
+                <input type="text" class="sContact-input"  id="contact-first-name" placeholder="Imię">
+                <input type="text" class="sContact-input"  id="contact-name" placeholder="Nazwisko">
+            </div>
+            <button type="button" class="contact-button" id="step-2-submit">OK</button>
+        </form>
+        <form id="form-3" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok III</div>
+
+            <div class="info-box__content"></div>
+
+            <input type="text" class="sContact-input" id="address-street" placeholder="Ulica i numer domu/mieszkania">
+            <input type="text" class="sContact-input" id="address-city" placeholder="Kod pocztowy i miasto">
+
+            <button type="button" class="contact-button" id="step-3-submit">OK</button>
+        </form>
+        <form id="form-4" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok IV</div>
+
+            <div class="info-box__content"></div>
+
+            <input type="text" class="sContact-input" id="phone-number" placeholder="Numer telefonu">
+
+            <button type="button" class="contact-button" id="step-4-submit">OK</button>
+        </form>
+        <form id="form-5" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok V</div>
+
+            <div class="info-box__content"></div>
+
+            <label class="container">Wyrażam zgodę na otrzymywanie maili drogą elektroniczną od podmiotów takich a takich
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Wyrażam zgodę na otrzymywanie telefonów od podmiotów takich a takich
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <button type="button" class="contact-button" id="step-5-submit">OK</button>
+        </form>
+        <form id="form-6" style="display: none" class="konto-form">
+            <div class="info-box__title">Krok VI - podziękowanie</div>
+
+            <div class="info-box__content"></div>
+
+        </form>
+    </div>
+</main>
+</body>
+
+</html>
