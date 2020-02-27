@@ -63,33 +63,33 @@ $(document).ready(function () {
             var currentVideo = video1[0].paused ? waitingVideo : video1;
             moveToNextStep(form1, form2, currentVideo, video2);
             addWaitingVideo(video2, waitingVideo, 13000);
-            // video3[0].load();
-            addVideo('video-step-3', './adres.mp4');
-            video3 = $("#video-step-3");
+            video3[0].load();
+            // addVideo('video-step-3', './adres.mp4');
+            // video3 = $("#video-step-3");
         });
         $("#step-2-submit").on('click', function () {
             var currentVideo = video2[0].paused ? waitingVideo : video2;
             moveToNextStep(form2, form3, currentVideo, video3);
             addWaitingVideo(video3, waitingVideo, 10000);
-            addVideo('video-step-4', './numer_telefonu.mp4');
-            video4 = $("#video-step-4");
-            // video4[0].load();
+            // addVideo('video-step-4', './numer_telefonu.mp4');
+            // video4 = $("#video-step-4");
+            video4[0].load();
         });
         $("#step-3-submit").on('click', function () {
             var currentVideo = video3[0].paused ? waitingVideo : video3;
             moveToNextStep(form3, form4, currentVideo, video4);
             addWaitingVideo(video4, waitingVideo, 8000);
-            addVideo('video-step-5', './newsletter.mp4');
-            video5 = $("#video-step-5");
-            // video5[0].load();
+            // addVideo('video-step-5', './newsletter.mp4');
+            // video5 = $("#video-step-5");
+            video5[0].load();
         });
         $("#step-4-submit").on('click', function () {
             var currentVideo = video4[0].paused ? waitingVideo : video4;
             moveToNextStep(form4, form5, currentVideo, video5);
             addWaitingVideo(video5, waitingVideo, 7000);
-            addVideo('video-step-6', './podziekowania.mp4');
-            video6 = $("#video-step-6");
-            // video6[0].load();
+            // addVideo('video-step-6', './podziekowania.mp4');
+            // video6 = $("#video-step-6");
+            video6[0].load();
         });
         $("#step-5-submit").on('click', function () {
             var currentVideo = video5[0].paused ? waitingVideo : video5;
