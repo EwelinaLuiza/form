@@ -48,6 +48,10 @@ $(document).ready(function () {
     var form5 = $('#form-5');
     var form6 = $('#form-6');
 
+    $("#play").on('click', function () {
+        video1[0].play();
+    });
+
     video1.on('playing', function () {
         $('.play').remove();
         $('#konto-form').show();
